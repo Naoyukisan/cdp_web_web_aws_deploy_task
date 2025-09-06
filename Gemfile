@@ -50,6 +50,9 @@ group :development do
   gem "image_processing", "~> 1.2"
   gem "aws-sdk-s3", require: false
   gem "dotenv-rails"
+  gem 'dotenv'
+  gem 'ed25519',      '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 end
 
 group :test do

@@ -5,8 +5,12 @@ set :application, "cdp_web_web_aws_deploy_task"
 set :repo_url, "https://github.com/Naoyukisan/cdp_web_web_aws_deploy_task.git"
 set :bundle_without, %w{test}.join(":")
 
+set :rbenv_type, :user
+set :rbenv_ruby, "3.3.0"
+
 set :rbenv_version, "3.3.0"
-append :linked_files, "config/secrets.yml"
+append :linked_files, "config/database.yml"
+append :linked_dirs,  "log", "tmp/pids", "tmp/sockets", "tmp/cache", "public/assets", "storage"
 set :branch, "main"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -40,3 +44,11 @@ set :branch, "main"
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :default_env, fetch(:default_env, {}).merge(
+  'AWS_ACCESS_KEY_ID' => ENV['AWS_ACCESS_KEY_ID'],
+  'AWS_SECRET_ACCESS_KEY' => ENV['AWS_SECRET_ACCESS_KEY'],
+  'AWS_REGION' => ENV['AWS_REGION'],
+  'S3_BUCKET' => ENV['S3_BUCKET'],
+  'BLOG_APP_DATABASE_PASSWORD' => ENV.fetch('BLOG_APP_DATABASE_PASSWORD')
+)
