@@ -50,6 +50,6 @@ set :default_env, fetch(:default_env, {}).merge(
   "AWS_ACCESS_KEY_ID" => ENV["AWS_ACCESS_KEY_ID"],
   "AWS_SECRET_ACCESS_KEY" => ENV["AWS_SECRET_ACCESS_KEY"],
   "AWS_REGION" => ENV["AWS_REGION"],
-  "S3_BUCKET" => ENV["S3_BUCKET"],
+  "S3_BUCKET" => "dic-sample-bucket001",
   "BLOG_APP_DATABASE_PASSWORD" => ENV.fetch("BLOG_APP_DATABASE_PASSWORD"),
 )
