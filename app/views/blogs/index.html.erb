@@ -17,10 +17,13 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= image_tag blog.thumbnail.variant(resize_to_limit: [200, 200]) if blog.thumbnail.present? %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if blog.image.attached? %>
+            <%= image_tag blog.image.variant(resize_to_limit: [200, 200]).processed %>
+          <% end %></td>
+        <td><%= link_to "Show", blog %></td>
+        <td><%= link_to "Edit", edit_blog_path(blog) %></td>
+        <td><%= link_to "Destroy", blog, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to "New Blog", new_blog_path %>
