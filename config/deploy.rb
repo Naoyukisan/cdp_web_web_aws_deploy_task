@@ -9,9 +9,10 @@ set :rbenv_type, :user
 set :rbenv_ruby, "3.3.0"
 
 set :rbenv_version, "3.3.0"
-append :linked_files, "config/database.yml"
-append :linked_dirs,  "log", "tmp/pids", "tmp/sockets", "tmp/cache", "public/assets", "storage"
+append :linked_files, "config/database.yml", "config/master.key"
+append :linked_dirs, "log", "tmp/pids", "tmp/sockets", "tmp/cache", "public/assets", "storage"
 set :branch, "main"
+
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
@@ -46,9 +47,9 @@ set :branch, "main"
 # set :ssh_options, verify_host_key: :secure
 
 set :default_env, fetch(:default_env, {}).merge(
-  'AWS_ACCESS_KEY_ID' => ENV['AWS_ACCESS_KEY_ID'],
-  'AWS_SECRET_ACCESS_KEY' => ENV['AWS_SECRET_ACCESS_KEY'],
-  'AWS_REGION' => ENV['AWS_REGION'],
-  'S3_BUCKET' => ENV['S3_BUCKET'],
-  'BLOG_APP_DATABASE_PASSWORD' => ENV.fetch('BLOG_APP_DATABASE_PASSWORD')
+  "AWS_ACCESS_KEY_ID" => ENV["AWS_ACCESS_KEY_ID"],
+  "AWS_SECRET_ACCESS_KEY" => ENV["AWS_SECRET_ACCESS_KEY"],
+  "AWS_REGION" => ENV["AWS_REGION"],
+  "S3_BUCKET" => ENV["S3_BUCKET"],
+  "BLOG_APP_DATABASE_PASSWORD" => ENV.fetch("BLOG_APP_DATABASE_PASSWORD"),
 )
