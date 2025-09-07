@@ -47,7 +47,6 @@ group :development do
   gem "capistrano-safe-deploy-to"
   gem "capistrano-rbenv", "~> 2.2"
   gem "capistrano3-unicorn"
-  gem "image_processing", "~> 1.2"
   gem "aws-sdk-s3", require: false
   gem "dotenv-rails"
   gem 'dotenv'
