@@ -19,7 +19,7 @@
         <td><%= blog.content %></td>
         <td>
           <% if blog.image.attached? %>
-            <%= image_tag blog.image.variant(resize_to_limit: [200, 200]).processed %>
+            <%= image_tag blog.image.variant(resize_to_limit: [200, 200]) %>
           <% end %>
         </td>
         <td>
