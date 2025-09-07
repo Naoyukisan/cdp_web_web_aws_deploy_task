@@ -1,6 +1,6 @@
-if Rails.env.production? && Rails.application.config.active_storage.service == :amazon
-  cfg = Rails.application.config.active_storage.service_configurations
-  # 文字列キー/シンボルキーの両対応で amazon 設定を取得/生成して region を差す
-  svc = (cfg[:amazon] ||= cfg["amazon"] ||= {})
-  svc[:region] ||= ENV.fetch("AWS_REGION", "ap-southeast-2")
+if Rails.env.production?
+  region = ENV['AWS_REGION'].presence || 'ap-southeast-2'
+  # SDK は AWS_REGION / AWS_DEFAULT_REGION のどちらでも読む
+  ENV['AWS_REGION'] = region
+  ENV['AWS_DEFAULT_REGION'] ||= region
 end
