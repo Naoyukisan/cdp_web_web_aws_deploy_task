@@ -11,7 +11,7 @@ amazon:
   service: S3
   access_key_id:     <%= ENV["AWS_ACCESS_KEY_ID"] %>
   secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
-  bucket: <%= ENV.fetch("S3_BUCKET", "dic-sample-bucket001") %>
+  bucket: <%= ENV.fetch("S3_BUCKET") %>
   region: <%= ENV.fetch("AWS_REGION", "ap-southeast-2") %>
 
   
