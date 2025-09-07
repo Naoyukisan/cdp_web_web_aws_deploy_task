@@ -20,4 +20,3 @@ if Rails.env.production?
   ENV["AWS_REGION"] = region
   ENV["AWS_DEFAULT_REGION"] ||= region
 end
-RUBY
